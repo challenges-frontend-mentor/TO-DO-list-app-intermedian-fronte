@@ -1,0 +1,7 @@
+@use "../config/variables" as *;
+
+@mixin from($size) {
+  @media screen and (min-width: $size) {
+    @content;
+  }
+}

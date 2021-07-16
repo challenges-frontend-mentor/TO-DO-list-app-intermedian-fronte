@@ -1,0 +1,151 @@
+:root {
+  --Bright-Blue: hsl(220, 98%, 61%);
+  --Check-Background: linear-gradient(45deg, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+  --background-images-desktop-light: url(../assets/images/bg-desktop-light.jpg);
+  --background-images-movile-light: url(../assets/images/bg-mobile-light.jpg);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --Very-Light-Grayish-Blue: hsl(236, 33%, 92%);
+  --Light-Grayish-Blue: hsl(233, 11%, 84%);
+  --Dark-Grayish-Blue: hsl(236, 9%, 61%);
+  --Very-Dark-Grayish-Blue2: hsl(235, 19%, 35%);
+  --background-images-desktop-dark: url(../assets/images/bg-desktop-dark.jpg);
+  --background-images-mobile-dark: url(../assets/images/bg-mobile-dark.jpg);
+  --Very-Dark-Blue: hsl(235, 21%, 11%);
+  --Very-Dark-Desaturated-Blue: hsl(235, 24%, 19%);
+  --Light-Grayish-Blue: hsl(234, 39%, 85%);
+  --Light-Grayish-Blue-hover: hsl(236, 33%, 92%);
+  --Dark-Grayish-Blue: hsl(234, 11%, 52%);
+  --Very-Dark-Grayish-Blue: hsl(233, 14%, 35%);
+  --Very-Dark-Grayish-Blue: hsl(237, 14%, 26%);
+  --white: hsl(255,100%, 100%);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: JosefinSans;
+  margin: 30px 25px 0;
+  color: var(--white);
+  background-color: var(--Very-Dark-Blue);
+  background-image: var(--background-images-mobile-dark);
+  background-repeat: no-repeat;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  letter-spacing: 10px;
+}
+.header img {
+  width: 6%;
+}
+
+.title {
+  font-size: 1.6rem;
+}
+
+.form:first-child .form__field {
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.form ul li:first-child .form__field {
+  border-radius: 5px 5px 0 0;
+}
+.form__field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
+  padding: 15px;
+}
+.form__label {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid var(--Very-Dark-Grayish-Blue);
+  margin: 0;
+  margin-left: 10px;
+}
+.form__label + input[type=checkbox]:checked {
+  background-color: blue;
+}
+.form__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+  border: none;
+}
+.form__button img {
+  width: 70%;
+}
+.form__input {
+  background-color: transparent;
+  color: var(--Light-Grayish-Blue);
+  border: none;
+  margin-left: -90px;
+  font-size: 0.7rem;
+}
+.form__input--checkbox {
+  position: relative;
+  left: -25px;
+  visibility: hidden;
+  position: relative;
+}
+.form__input:checked + label {
+  background-color: blue;
+}
+
+.filter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.filter__list {
+  display: flex;
+  justify-content: center;
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  padding: 10px;
+  border-radius: 5px;
+}
+.filter__button {
+  background-color: transparent;
+  border: none;
+  color: var(--Dark-Grayish-Blue);
+  font-weight: 700;
+}
+.filter__remaining {
+  background-color: var(--Very-Dark-Desaturated-Blue);
+  padding: 15px 15px 15px 25px;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-radius: 0 0 5px 5px;
+  color: var(--Dark-Grayish-Blue);
+  font-size: 0.7rem;
+}
+.filter__remove {
+  position: absolute;
+  background-color: transparent;
+  color: var(--Dark-Grayish-Blue);
+  width: 40%;
+  padding-top: 15px;
+  padding-right: 4px;
+  top: 0;
+  right: 0;
+  border: none;
+  font-size: 0.6rem;
+}

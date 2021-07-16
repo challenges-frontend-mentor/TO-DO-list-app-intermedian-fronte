@@ -1,0 +1,24 @@
+@use "../config/variables" as *;
+@use "../mixins/reset-list" as *;
+@use "../mixins/to" as *;
+@use "../mixins/from" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body{
+  font-family: JosefinSans;
+  margin: 30px 25px 0;
+  color: var(--white);
+  background-color: var(--Very-Dark-Blue);
+  background-image: var(--background-images-mobile-dark);
+  background-repeat: no-repeat;
+
+}
+
+ul{
+  @include reset-list;
+}

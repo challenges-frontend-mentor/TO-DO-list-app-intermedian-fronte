@@ -8,5 +8,85 @@
     <link rel="stylesheet" href="css/fonts.css"/>
     <title>TO-DO list</title>
   </head>
-  <body></body>
+  <body>
+    <header class="header">
+      <h1 class="title">TODO</h1><img id="toogle-icon-theme" src="./assets/images/icon-sun.svg" alt=""/>
+    </header>
+    <main class="main">
+      <form class="form" id="new-todo-form">
+        <div class="form__field">
+          <label class="form__label" for="new-todo-form"></label>
+          <input class="form__input form__input--checkbox" type="checkbox" id="new-todo-checkbox"/>
+          <input class="form__input" type="text" id="new-todo-item"/>
+        </div>
+      </form>
+      <form class="form form--todos" id="todo-list-form">
+        <ul class="todo-list"> 
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-0"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-0"/>
+              <input class="form__input" type="text" value="complete online JavaScript tutorial"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-1"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-1"/>
+              <input class="form__input" type="text" value="Jog around the park 3x"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-2"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-2"/>
+              <input class="form__input" type="text" value="10 minutes meditation"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-3"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-3"/>
+              <input class="form__input" type="text" value="Read for 1 hour"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-4"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-4"/>
+              <input class="form__input" type="text" value="Pick up groceries"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+          <li class="todo-list__item">
+            <div class="form__field">
+              <label class="form__label" for="todo-item-5"></label>
+              <input class="form__input form__input--checkbox" type="checkbox" name="todo" id="todo-item-5"/>
+              <input class="form__input" type="text" value="Complete Todo App Frontend Mentor"/>
+              <button class="form__button"><img src="./assets/images/icon-cross.svg" alt=""/></button>
+            </div>
+          </li>
+        </ul>
+      </form>
+      <div class="filter">
+        <p class="filter__remaining">5 items left</p>
+        <ul class="filter__list">
+          <li class="filter__item">
+            <button class="filter__button filter__button--active">All</button>
+          </li>
+          <li class="filter__item"> 
+            <button class="filter__button filter__button--active">Active</button>
+          </li>
+          <li class="filter__item"> 
+            <button class="filter__button filter__button--active">Completed</button>
+          </li>
+        </ul>
+        <button class="filter__remove">Clear Completed</button>
+      </div>
+    </main>
+  </body>
 </html>

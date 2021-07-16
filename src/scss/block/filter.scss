@@ -1,0 +1,47 @@
+@use "../config/variables" as *;
+@use "../mixins/to" as *;
+@use "../mixins/from" as *;
+
+.filter{
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__list{
+    display: flex;
+    justify-content: center;
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    padding: 10px;
+    border-radius: 5px;
+  }
+
+  &__button{
+    background-color: transparent;
+    border: none;
+    color: var(--Dark-Grayish-Blue);
+    font-weight: 700;
+  }
+
+  &__remaining{
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    padding: 15px 15px 15px 25px;
+    margin-top: 0;
+    margin-bottom: 15px; 
+    border-radius: 0 0 5px 5px;
+    color: var(--Dark-Grayish-Blue);
+    font-size: .7rem;
+  }
+
+  &__remove{
+    position: absolute;
+    background-color: transparent;
+    color: var(--Dark-Grayish-Blue);
+    width: 40%;
+    padding-top: 15px;
+    padding-right: 4px;
+    top: 0;
+    right: 0;
+    border: none;
+    font-size: .6rem;
+  }
+}

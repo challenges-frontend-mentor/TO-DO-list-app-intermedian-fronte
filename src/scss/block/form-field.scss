@@ -1,0 +1,81 @@
+@use "../config/variables" as *;
+@use "../mixins/to" as *;
+@use "../mixins/from" as *;
+
+.form{
+
+  &:first-child &__field{
+    border-radius: 5px;
+    margin-bottom: 15px;
+
+  }
+
+  & ul li:first-child &__field{
+    border-radius: 5px 5px 0 0 ;
+
+  }
+
+  
+  &__field{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Very-Dark-Desaturated-Blue);
+    border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
+    padding: 15px;
+    
+    
+  
+  }
+
+  &__label{
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid var(--Very-Dark-Grayish-Blue);
+    margin: 0;
+    margin-left: 10px;
+
+    & + input[type=checkbox]:checked{
+      background-color: blue;
+  
+    }
+  }
+
+  &__button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 2%;
+    background: transparent;
+    border: none;
+
+    & img{
+      width: 70%;
+    }
+  }
+
+  &__input{
+    background-color: transparent;
+    color: var(--Light-Grayish-Blue);
+    border: none;
+    margin-left: -90px;
+    font-size: .7rem;
+
+    &--checkbox{
+    position: relative;
+    left: -25px;
+     visibility: hidden;
+    position: relative;
+    }
+
+    &:checked + label{
+      background-color: blue;
+
+    }
+
+  }
+
+
+}

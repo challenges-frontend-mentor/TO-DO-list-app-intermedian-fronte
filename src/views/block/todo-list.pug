@@ -1,0 +1,11 @@
+- const todos = ["complete online JavaScript tutorial", "Jog around the park 3x","10 minutes meditation","Read for 1 hour","Pick up groceries", "Complete Todo App Frontend Mentor"]
+form#todo-list-form.form.form--todos
+  ul.todo-list  
+    each todo, i in todos  
+      li.todo-list__item
+        .form__field
+          label.form__label(for=`todo-item-${i}`)
+          input(type="checkbox" name="todo" id=`todo-item-${i}`).form__input.form__input--checkbox
+          input(type="text" value= todo).form__input
+          button.form__button
+            img(src="./assets/images/icon-cross.svg", alt="")

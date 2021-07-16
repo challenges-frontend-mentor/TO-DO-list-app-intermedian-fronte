@@ -7,3 +7,10 @@ html(lang="es")
     include ../block/css
     title TO-DO list
   body
+    header.header
+      h1.title TODO
+      img#toogle-icon-theme(src="./assets/images/icon-sun.svg", alt="")
+    main.main
+      include ../block/new-todo
+      include ../block/todo-list
+      include ../block/filter         
