@@ -20,6 +20,10 @@
     border: none;
     color: var(--Dark-Grayish-Blue);
     font-weight: 700;
+
+    &--active{
+      color: var(--Bright-Blue);
+    }
   }
 
   &__remaining{

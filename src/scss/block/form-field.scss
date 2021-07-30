@@ -18,7 +18,7 @@
   
   &__field{
     display: flex;
-    justify-content: space-between;
+    // justify-content: space-between;
     align-items: center;
     background-color: var(--Very-Dark-Desaturated-Blue);
     border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
@@ -29,50 +29,90 @@
   }
 
   &__label{
+    
     display: inline-block;
+    position: relative;
     width: 20px;
     height: 20px;
     border-radius: 50%;
     border: 1px solid var(--Very-Dark-Grayish-Blue);
     margin: 0;
     margin-left: 10px;
-
-    & + input[type=checkbox]:checked{
-      background-color: blue;
-  
+    margin-right: 10px;
+    // background: red;
+    // background-clip: padding-box;
+    cursor: pointer;
+    
+    &:hover::before,
+    &:hover::after{     
+      content: "";
+      position: absolute; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 10px;
+      background-image:var(--Check-Background);
+      border-radius: 50%;
+   
     }
+    &:hover::after{  
+      padding: 9.1px;
+      background: var(--Very-Dark-Desaturated-Blue);
+    
+    }
+
+    
   }
 
   &__button{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    // width: 2%;
     background: transparent;
     border: none;
+    
 
     & img{
-      width: 70%;
+      width: 12px;
     }
   }
 
   &__input{
+    flex-grow: 1;
     background-color: transparent;
     color: var(--Light-Grayish-Blue);
     border: none;
-    margin-left: -90px;
+    // margin-left: -64px;
     font-size: .7rem;
 
+    &:focus{
+      outline: transparent;
+    }
+
     &--checkbox{
-    position: relative;
-    left: -25px;
-     visibility: hidden;
-    position: relative;
+      display: none;
     }
 
     &:checked + label{
-      background-color: blue;
-
+      background-image: var(--Check-Background);
+      border: transparent;
+      
+      // pointer-events: none;
+      // z-index: 2;
+      
+    }
+    
+    &:checked + label::before{
+      content: url(../assets/images/icon-check.svg);
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    &:checked + label:hover::after{
+      background-color:transparent;
+      
+      
+      
     }
 
   }

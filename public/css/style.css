@@ -65,7 +65,6 @@ ul {
 }
 .form__field {
   display: flex;
-  justify-content: space-between;
   align-items: center;
   background-color: var(--Very-Dark-Desaturated-Blue);
   border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
@@ -73,41 +72,64 @@ ul {
 }
 .form__label {
   display: inline-block;
+  position: relative;
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 1px solid var(--Very-Dark-Grayish-Blue);
   margin: 0;
   margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
 }
-.form__label + input[type=checkbox]:checked {
-  background-color: blue;
+.form__label:hover::before, .form__label:hover::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  background-image: var(--Check-Background);
+  border-radius: 50%;
+}
+.form__label:hover::after {
+  padding: 9.1px;
+  background: var(--Very-Dark-Desaturated-Blue);
 }
 .form__button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: transparent;
   border: none;
 }
 .form__button img {
-  width: 70%;
+  width: 12px;
 }
 .form__input {
+  flex-grow: 1;
   background-color: transparent;
   color: var(--Light-Grayish-Blue);
   border: none;
-  margin-left: -90px;
   font-size: 0.7rem;
 }
+.form__input:focus {
+  outline: transparent;
+}
 .form__input--checkbox {
-  position: relative;
-  left: -25px;
-  visibility: hidden;
-  position: relative;
+  display: none;
 }
 .form__input:checked + label {
-  background-color: blue;
+  background-image: var(--Check-Background);
+  border: transparent;
+}
+.form__input:checked + label::before {
+  content: url(../assets/images/icon-check.svg);
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form__input:checked + label:hover::after {
+  background-color: transparent;
 }
 
 .filter {
@@ -127,6 +149,9 @@ ul {
   border: none;
   color: var(--Dark-Grayish-Blue);
   font-weight: 700;
+}
+.filter__button--active {
+  color: var(--Bright-Blue);
 }
 .filter__remaining {
   background-color: var(--Very-Dark-Desaturated-Blue);
