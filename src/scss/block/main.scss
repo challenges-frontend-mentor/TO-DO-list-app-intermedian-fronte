@@ -1,0 +1,10 @@
+@use "../config/variables" as *;
+@use "../mixins/to" as *;
+@use "../mixins/from" as *;
+
+
+.main{
+    margin-left: auto;
+    margin-right: auto;
+    width: 540px;
+}

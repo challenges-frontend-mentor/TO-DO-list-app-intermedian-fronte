@@ -4,23 +4,50 @@
 
 .filter{
   position: relative;
-  display: flex;
-  flex-direction: column;
+  @include to($desktop){
+    display: flex;
+    flex-direction: column;
+
+  }
 
   &__list{
     display: flex;
     justify-content: center;
     background-color: var(--Very-Dark-Desaturated-Blue);
-    padding: 10px;
-    border-radius: 5px;
-  }
+    
 
+    @include from($desktop){
+      position: absolute;
+      background-color: transparent;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 540px;
+    }
+    
+    @include to($desktop){
+      padding: 14px;
+      border-radius: 5px;
+      
+    }
+  }
+  
   &__button{
     background-color: transparent;
     border: none;
-    color: var(--Dark-Grayish-Blue);
+    color: var(--dark-filter);
     font-weight: 700;
 
+    
+    @include from($desktop){
+      font-size: .85rem;
+      cursor: pointer;
+      
+      &:hover{
+        color: white;
+      }
+    }
+    
     &--active{
       color: var(--Bright-Blue);
     }
@@ -28,12 +55,23 @@
 
   &__remaining{
     background-color: var(--Very-Dark-Desaturated-Blue);
-    padding: 15px 15px 15px 25px;
+    padding-top: var(--padding);
+    padding-bottom: var(--padding);
+    padding-right: 15px;
+    padding-left: 25px;
     margin-top: 0;
-    margin-bottom: 15px; 
     border-radius: 0 0 5px 5px;
     color: var(--Dark-Grayish-Blue);
     font-size: .7rem;
+    
+    @include from($desktop){
+      font-size: 1rem;
+    }
+    
+    @include to($desktop){
+      margin-bottom: 15px; 
+
+    }
   }
 
   &__remove{
@@ -41,11 +79,29 @@
     background-color: transparent;
     color: var(--Dark-Grayish-Blue);
     width: 40%;
-    padding-top: 15px;
-    padding-right: 4px;
     top: 0;
     right: 0;
     border: none;
     font-size: .6rem;
+    
+    
+    @include to($desktop){
+      padding-top: var(--padding);
+      padding-right: 4px;
+      
+      
+    }
+    
+    @include from($desktop){
+      font-size: .9rem;
+      padding-right: 1px;
+      padding-top: 21px;
+      right: -25px;
+      cursor: pointer;
+      
+      &:hover{
+        color: white;
+      }
+    }
   }
 }

@@ -1,11 +1,27 @@
+@use "../config/variables" as *;
+@use "../mixins/to" as *;
+@use "../mixins/from" as *;
+
 .header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   letter-spacing: 10px;
+  margin-bottom: 13px;
+
+  @include from($desktop){
+    width: 540px;
+    margin-top: 47px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
   & img{
-    width: 6%;
+    width: 20px;
+
+    @include from($desktop){
+      width: 25px;
+    }
 
   }
 
@@ -13,5 +29,9 @@
 
 .title{
   font-size: 1.6rem;
+
+  @include from($desktop){
+    font-size: 2.5rem;
+  }
 }
 

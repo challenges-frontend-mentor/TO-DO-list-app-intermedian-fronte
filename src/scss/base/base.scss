@@ -17,8 +17,19 @@ body{
   background-image: var(--background-images-mobile-dark);
   background-repeat: no-repeat;
 
+  @include from($desktop){
+    background-image: var(--background-images-desktop-dark);
+    background-position: top center;
+    
+  }
+
 }
 
 ul{
   @include reset-list;
+}
+
+button,
+input{
+  font-family: JosefinSans;
 }

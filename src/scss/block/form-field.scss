@@ -2,34 +2,40 @@
 @use "../mixins/to" as *;
 @use "../mixins/from" as *;
 
-.form{
-
-  &:first-child &__field{
+.form {
+  
+  &:first-child &__field {
     border-radius: 5px;
     margin-bottom: 15px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 
+    @include from($desktop){
+      --padding-field: 22px;
+
+      padding-top:var(--padding-field);
+      padding-bottom: var(--padding-field);
+      margin-bottom: var(--padding-field);
+    }
   }
-
-  & ul li:first-child &__field{
-    border-radius: 5px 5px 0 0 ;
-
-  }
-
   
-  &__field{
+  & ul li:first-child &__field {
+    border-radius: 5px 5px 0 0;
+  }
+  
+  &__field {
     display: flex;
-    // justify-content: space-between;
     align-items: center;
     background-color: var(--Very-Dark-Desaturated-Blue);
     border-bottom: 1px solid var(--Very-Dark-Grayish-Blue);
-    padding: 15px;
-    
-    
-  
+    padding: 16px;
+
+    @include from($desktop){
+      padding: 19.3px;
+    }
   }
 
-  &__label{
-    
+  &__label {
     display: inline-block;
     position: relative;
     width: 20px;
@@ -39,67 +45,70 @@
     margin: 0;
     margin-left: 10px;
     margin-right: 10px;
-    // background: red;
-    // background-clip: padding-box;
     cursor: pointer;
-    
+
+    @include from($desktop){
+      width: 23px;
+      height: 23px;
+    }
+
     &:hover::before,
-    &:hover::after{     
+    &:hover::after {
       content: "";
-      position: absolute; 
+      position: absolute;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       padding: 10px;
-      background-image:var(--Check-Background);
+      background-image: var(--Check-Background);
       border-radius: 50%;
-   
     }
-    &:hover::after{  
+
+    &:hover::after {
       padding: 9.1px;
       background: var(--Very-Dark-Desaturated-Blue);
-    
     }
-
-    
   }
 
-  &__button{
+  &__button {
     background: transparent;
     border: none;
-    
 
-    & img{
+    & img {
       width: 12px;
+
+      @include from($desktop){
+        width: 18px;
+      }
     }
   }
 
-  &__input{
+  &__input {
     flex-grow: 1;
     background-color: transparent;
     color: var(--Light-Grayish-Blue);
     border: none;
-    // margin-left: -64px;
-    font-size: .7rem;
+    font-size: 0.7rem;
+    cursor: pointer;
 
-    &:focus{
+    @include from($desktop){
+      font-size: 1.15rem;
+    }
+
+    &:focus {
       outline: transparent;
     }
 
-    &--checkbox{
+    &--checkbox {
       display: none;
     }
 
-    &:checked + label{
+    &:checked + label {
       background-image: var(--Check-Background);
       border: transparent;
-      
-      // pointer-events: none;
-      // z-index: 2;
-      
     }
-    
-    &:checked + label::before{
+
+    &:checked + label::before {
       content: url(../assets/images/icon-check.svg);
       width: 20px;
       height: 20px;
@@ -107,15 +116,13 @@
       align-items: center;
       justify-content: center;
     }
-    
-    &:checked + label:hover::after{
-      background-color:transparent;
-      
-      
-      
+
+    &:checked + label:hover::after {
+      background-color: transparent;
     }
 
+    &:checked + input{
+      background-color: red;
+    }
   }
-
-
 }
