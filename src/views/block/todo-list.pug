@@ -1,11 +1,12 @@
-- const todos = ["complete online JavaScript tutorial", "Jog around the park 3x","10 minutes meditation","Read for 1 hour","Pick up groceries", "Complete Todo App Frontend Mentor"]
-form#todo-list-form.form.form--todos
-  ul.todo-list  
+//- - const todos = ["complete online JavaScript tutorial", "Jog around the park 3x","10 minutes meditation","Read for 1 hour","Pick up groceries", "Complete Todo App Frontend Mentor"]
     each todo, i in todos  
+form#todo-list-form.form.form--todos
+  ul.todo-list
+    template#item-todo-list  
       li.todo-list__item
         .form__field
           input(type="checkbox" name="todo" id=`todo-item-${i}`).form__input.form__input--checkbox
           label.form__label(for=`todo-item-${i}`)
-          input(type="text" value= todo).form__input
+          input(type="text" value= todo).form__input#inputJob
           button.form__button
             img(src="./assets/images/icon-cross.svg", alt="")

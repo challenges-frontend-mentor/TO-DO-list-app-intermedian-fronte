@@ -55,6 +55,14 @@ input {
   font-family: JosefinSans;
 }
 
+img {
+  pointer-events: none;
+}
+
+button {
+  cursor: pointer;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -168,6 +176,7 @@ input {
   border: none;
   font-size: 0.7rem;
   cursor: pointer;
+  padding-top: 4px;
 }
 @media screen and (min-width: 1440px) {
   .form__input {
@@ -191,6 +200,12 @@ input {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (min-width: 1440px) {
+  .form__input:checked + label::before {
+    width: 23px;
+    height: 23px;
+  }
 }
 .form__input:checked + label:hover::after {
   background-color: transparent;
@@ -234,6 +249,7 @@ input {
   border: none;
   color: var(--dark-filter);
   font-weight: 700;
+  cursor: pointer;
 }
 @media screen and (min-width: 1440px) {
   .filter__button {

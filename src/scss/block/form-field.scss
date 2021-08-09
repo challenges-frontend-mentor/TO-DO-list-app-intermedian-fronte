@@ -90,6 +90,7 @@
     border: none;
     font-size: 0.7rem;
     cursor: pointer;
+    padding-top: 4px;
 
     @include from($desktop){
       font-size: 1.15rem;
@@ -115,6 +116,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
+
+      @include from($desktop){
+        width: 23px;
+        height: 23px;
+      }
     }
 
     &:checked + label:hover::after {

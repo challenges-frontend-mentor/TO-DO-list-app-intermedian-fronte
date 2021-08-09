@@ -37,6 +37,7 @@
     border: none;
     color: var(--dark-filter);
     font-weight: 700;
+    cursor: pointer;
 
     
     @include from($desktop){
