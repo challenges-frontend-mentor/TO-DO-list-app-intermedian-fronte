@@ -60,17 +60,14 @@ todoList.addEventListener("click", e =>{
     
 })
 
-//filter color change
+//filter 
 filterList.addEventListener("click", e =>{
+    // funtion color change
     colorChangeFilter(e)
+    // funtion filter active item
+    activeItemList(e)
 })
 
-// //delete item
-// todoListForm.addEventListener("click", e =>{
-//     e.preventDefault()
-//     console.log(e.target)
-//     // deleteItemList(e)
-// })
 
 const setTarea = e =>{
     if(inputNewItem.value.trim() === ""){
@@ -115,10 +112,12 @@ const checkCheckbox = e =>{
         if(itemList[e.target.id].checked){
             itemList[e.target.id].checked = false
             drawHomework()
+            resetColorFilter()
             // console.log(itemList)
         } else {
             itemList[e.target.id].checked = true
             drawHomework()
+            resetColorFilter()
             // console.log(itemList)
         }     
 
@@ -138,9 +137,57 @@ const deleteItemList = e =>{
     
 }
 
+const resetColorFilter = e =>{
+    const all = filterList.childNodes[1].childNodes[1]
+    const active = filterList.childNodes[3].childNodes[1]
+    const complete = filterList.childNodes[5].childNodes[1]
+
+    all.classList.remove("filter__button--active")
+    active.classList.remove("filter__button--active")
+    complete.classList.remove("filter__button--active")
+    all.classList.add("filter__button--active")
+
+
+    
+}
+
 const colorChangeFilter = e =>{
+    const all = filterList.childNodes[1].childNodes[1]
+    const active = filterList.childNodes[3].childNodes[1]
+    const complete = filterList.childNodes[5].childNodes[1]
+
     if(e.target.classList.contains("filter__button")){
+        all.classList.remove("filter__button--active")
+        active.classList.remove("filter__button--active")
+        complete.classList.remove("filter__button--active")
         e.target.classList.add("filter__button--active")
-        console.log(e.target)
+
+    }
+}
+
+const activeItemList = e =>{
+    console.log(e.target)
+
+    if(e.target.textContent.includes("All")){
+        console.log(itemList)
+        drawHomework()
+    }
+
+    if(e.target.textContent.includes("Active")){
+        let renewListItem = itemList
+        const countCheked = Object.values(itemList).filter(chekados => chekados.checked === false)
+        itemList = {...countCheked}
+        console.log(countCheked)
+        drawHomework()
+        itemList = renewListItem
+    }
+
+    if(e.target.textContent.includes("Completed")){
+        let renewListItem = itemList
+        const countCheked = Object.values(itemList).filter(chekados => chekados.checked === true)
+        itemList = {...countCheked}
+        console.log(countCheked)
+        drawHomework()
+        itemList = renewListItem
     }
 }
