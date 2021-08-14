@@ -5,37 +5,38 @@ const inputNewItem = document.getElementById("new-todo-item")
 const todoList = document.querySelector(".todo-list")
 const fragment = document.createDocumentFragment()
 const filterList = document.querySelector(".filter__list")
+const clearComplete = document.querySelector(".filter__remove")
 
 
 
 
 let itemList = {
-    00001:{
+    1628966502607:{
         id: 1,
         text: "Complete online Javascript course",
         checked: true
     },
-    00002:{
+    1628966506818:{
         id: 2,
         text: "Jog around the park 3x",
         checked: false
     },
-    00003:{
+    1628966538107:{
         id: 3,
         text: "10 minutes meditation",
         checked: false
     },
-    00004:{
+    1628966553516:{
         id: 4,
         text: "Read for 1 hour",
         checked: false
     },
-    00005:{
+    1628966569491:{
         id: 5,
         text: "Pick up groseries",
         checked: false
     },
-    00006:{
+    1628966582733:{
         id: 6,
         text: "Complete Todo App on Frontend Mentor",
         checked: false
@@ -68,7 +69,11 @@ filterList.addEventListener("click", e =>{
     activeItemList(e)
 })
 
+//remove clear complete
+clearComplete.addEventListener("click", e =>{
 
+    removeClearComplete()
+})
 const setTarea = e =>{
     if(inputNewItem.value.trim() === ""){
         console.log("campo vacio")
@@ -90,17 +95,20 @@ const setTarea = e =>{
 }
 
 const drawHomework = () =>{
+    console.log(itemList)
     const filterCounter = document.querySelector(".filter__remaining")
     todoList.innerHTML= ""
-    Object.values(itemList).forEach(item => {
+    // console.table(Object.entries(itemList))
+    Object.entries(itemList).forEach(item => {
         const cloneTemplate = itemTodoListFragment.cloneNode(true)
-        cloneTemplate.getElementById("inputJob").value = item.text
-        cloneTemplate.getElementById("inputJob").previousElementSibling.setAttribute("for", item.id)
-        cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.setAttribute("id", item.id)
-        cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.checked = item.checked
-        cloneTemplate.getElementById("inputJob").nextElementSibling.setAttribute("id", item.id)
+        cloneTemplate.getElementById("inputJob").value = item[1].text
+        cloneTemplate.getElementById("inputJob").previousElementSibling.setAttribute("for", item[0])
+        cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.checked = item[1].checked
+        cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.setAttribute("id", item[0])
+        cloneTemplate.getElementById("inputJob").nextElementSibling.setAttribute("id", item[0])
         fragment.appendChild(cloneTemplate)
     })
+
     todoList.appendChild(fragment)
     const countCheked = Object.values(itemList).filter(chekados => chekados.checked === false)
     filterCounter.textContent = `${countCheked.length} items left`
@@ -191,3 +199,14 @@ const activeItemList = e =>{
         itemList = renewListItem
     }
 }
+
+const removeClearComplete = (e) =>{
+    const listDelete = Object.values(itemList).filter(chekados => chekados.checked === false)
+    console.log(listDelete)
+    itemList = {...listDelete}
+    drawHomework()
+}
+
+
+
+ 

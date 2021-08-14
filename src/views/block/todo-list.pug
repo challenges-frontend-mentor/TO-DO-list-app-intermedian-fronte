@@ -5,8 +5,8 @@ form#todo-list-form.form.form--todos
     template#item-todo-list  
       li.todo-list__item
         .form__field
-          input(type="checkbox" name="todo" id=`todo-item-${i}`).form__input.form__input--checkbox
-          label.form__label(for=`todo-item-${i}`)
+          input(type="checkbox" name="todo").form__input.form__input--checkbox
+          label.form__label
           input(type="text" value= todo).form__input#inputJob
           button.form__button
             img(src="./assets/images/icon-cross.svg", alt="")
