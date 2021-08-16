@@ -45,7 +45,7 @@
       cursor: pointer;
       
       &:hover{
-        color: white;
+        color: var(--Light-Grayish-Blue-hover);
       }
     }
     
@@ -64,6 +64,7 @@
     border-radius: 0 0 5px 5px;
     color: var(--Dark-Grayish-Blue);
     font-size: .7rem;
+    box-shadow: 0px 8px 8px 0px var(--box-shadow-color);
     
     @include from($desktop){
       font-size: 1rem;
@@ -101,7 +102,7 @@
       cursor: pointer;
       
       &:hover{
-        color: white;
+        color: var(--Light-Grayish-Blue-hover);
       }
     }
   }

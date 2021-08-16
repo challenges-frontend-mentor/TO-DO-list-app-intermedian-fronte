@@ -6,6 +6,7 @@ const todoList = document.querySelector(".todo-list")
 const fragment = document.createDocumentFragment()
 const filterList = document.querySelector(".filter__list")
 const clearComplete = document.querySelector(".filter__remove")
+const changeTheme = document.getElementById("toogle-icon-theme")
 
 
 
@@ -44,6 +45,9 @@ let itemList = {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+    if(localStorage.getItem("itemList")){
+        itemList = JSON.parse(localStorage.getItem("itemList"))
+    }
     drawHomework()
 })
 
@@ -52,6 +56,7 @@ newTodoForm.addEventListener("submit", e =>{
     e.preventDefault()
     console.log(inputNewItem.value)
     setTarea(e)
+    resetColorFilter()
 })
 
 //check checkbox item
@@ -73,6 +78,14 @@ filterList.addEventListener("click", e =>{
 clearComplete.addEventListener("click", e =>{
 
     removeClearComplete()
+    resetColorFilter()
+
+})
+
+//change theme
+
+changeTheme.addEventListener("click", e =>{
+    changeThemePages(e)
 })
 const setTarea = e =>{
     if(inputNewItem.value.trim() === ""){
@@ -95,6 +108,9 @@ const setTarea = e =>{
 }
 
 const drawHomework = () =>{
+    localStorage.setItem("itemList", JSON.stringify(itemList))
+
+
     console.log(itemList)
     const filterCounter = document.querySelector(".filter__remaining")
     todoList.innerHTML= ""
@@ -104,6 +120,9 @@ const drawHomework = () =>{
         cloneTemplate.getElementById("inputJob").value = item[1].text
         cloneTemplate.getElementById("inputJob").previousElementSibling.setAttribute("for", item[0])
         cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.checked = item[1].checked
+        if(item[1].checked){
+            cloneTemplate.getElementById("inputJob").classList.add("form__input--line-through")
+        }
         cloneTemplate.getElementById("inputJob").previousElementSibling.previousElementSibling.setAttribute("id", item[0])
         cloneTemplate.getElementById("inputJob").nextElementSibling.setAttribute("id", item[0])
         fragment.appendChild(cloneTemplate)
@@ -139,6 +158,7 @@ const deleteItemList = e =>{
     if(e.target.classList.contains("form__button")){
         delete  itemList[e.target.id]
         drawHomework()
+        resetColorFilter()
         console.log(itemList)
       
     }
@@ -207,6 +227,18 @@ const removeClearComplete = (e) =>{
     drawHomework()
 }
 
-
+const changeThemePages = (e) =>{
+    // img.src = 
+    if(e.target.parentNode.parentNode.classList.contains("dark-theme")){
+        e.target.setAttribute("src", "./assets/images/icon-moon.svg")
+        e.target.parentNode.parentNode.classList.remove("dark-theme")
+        e.target.parentNode.parentNode.classList.add("light-theme")
+    } else {
+        e.target.setAttribute("src", "./assets/images/icon-sun.svg")
+        e.target.parentNode.parentNode.classList.remove("light-theme")
+        e.target.parentNode.parentNode.classList.add("dark-theme")
+    }
+    // console.log(e.target.setAttribute("src", "./assets/images/icon-moon.svg"))
+}
 
  
